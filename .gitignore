@@ -1,4 +1,9 @@
-node_modules/
+
+# Excel output files
 *.xlsx
+
+# Node dependencies
+node_modules/
+
+# Env files
 .env
-.DS_Store
