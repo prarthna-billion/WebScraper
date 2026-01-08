@@ -29,37 +29,6 @@ The application runs a local server and exposes browser-accessible routes that t
 
 ---
 
-## 📁 Project Structure
-# 🍷🍾 WebScraper — Wine & Spirits Scraper
-
-A Node.js–based web scraping service built using **Express.js** and **Puppeteer (Stealth Mode)** to extract **wine and spirits product data** from retail websites such as **Total Wine** and **Specs**.
-
-The application runs a local server and exposes browser-accessible routes that trigger scrapers and generate structured **Excel (.xlsx)** files.
-
----
-
-## 🚀 Features
-
-- 🧠 Puppeteer with **stealth plugin** to bypass bot detection
-- 🍷 Wine & 🥃 Spirits scraping
-- 🌐 Route-based scraper execution
-- 📊 Automatic Excel file generation
-- 🧩 Modular scrapers and routes
-- 🖥 Headful mode for manual captcha handling
-
----
-
-## 🧱 Tech Stack
-
-- Node.js
-- Express.js
-- Puppeteer
-- puppeteer-extra
-- puppeteer-extra-plugin-stealth
-- ExcelJS
-- Nodemon
-
----
 
 ## 📁 Project Structure
 
@@ -109,3 +78,8 @@ Solve captcha manually if prompted
 Data is extracted page by page
 Results are saved into an Excel file
 
+⚠️ Important Notes
+Runs in non-headless mode intentionally
+Captchas may appear and must be solved manually
+Excel files are generated locally
+Output files are excluded via .gitignore
