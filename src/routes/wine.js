@@ -1,23 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const { runTotalWine } = require('../scrapers/totalwine.scraper');
-const { saveToExcel } = require('../utils/excel.util');
-
-router.get('/total-wine', async (req, res) => {
-    const { url, pages } = req.query;
-
-    if (!url) return res.status(400).json({ success: false, error: "URL is required" });
-
+app.get('/api/wine', async (req, res) => {
+    // The specific Wine Category URL you provided
+    const targetUrl = "https://www.totalwine.com/wine/c/c0020";
+    
     try {
-        const data = await runTotalWine(url, parseInt(pages) || 1);
-        const fileName = `manual_totalwine_${Date.now()}.xlsx`;
-        saveToExcel(data, fileName);
-
-        res.json({ success: true, count: data.length, file: fileName });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ success: false, error: err.message });
+        console.log("🍷 Starting Wine Scraper (Target: 225 pages)...");
+        // We call the runner function (see Step 2)
+        await runWineScraper(targetUrl, 225);
+        res.json({ success: true, message: "Wine scrape complete. Check terminal." });
+    } catch (error) {
+        console.error("❌ Route Error:", error.message);
+        res.status(500).json({ success: false, error: error.message });
     }
 });
-
-module.exports = router;
