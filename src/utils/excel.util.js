@@ -1,15 +1,15 @@
-const XLSX = require('xlsx');
+// src/utils/excel.util.js
+import ExcelJS from "exceljs";
 
-const saveToExcel = (data, filename) => {
-    // Create worksheet from JSON data
-    const ws = XLSX.utils.json_to_sheet(data);
-    // Create a new workbook
-    const wb = XLSX.utils.book_new();
-    // Append the sheet to the workbook
-    XLSX.utils.book_append_sheet(wb, ws, "WineData");
-    // Write the file to the root directory
-    XLSX.writeFile(wb, filename);
-    return filename;
-};
+// Named export
+export function saveExcel(data, fileName, sheetName) {
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet(sheetName);
 
-module.exports = { saveToExcel };
+  if (data.length > 0) {
+    sheet.columns = Object.keys(data[0]).map((key) => ({ header: key, key }));
+    sheet.addRows(data);
+  }
+
+  return workbook.xlsx.writeFile(fileName);
+}

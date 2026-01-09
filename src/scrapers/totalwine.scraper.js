@@ -1,110 +1,99 @@
-const puppeteer = require('puppeteer-core');
-const ExcelJS = require('exceljs');
+// src/scrapers/totalwine.scraper.js
+const puppeteer = require("puppeteer");
+const fs = require("fs");
+const { saveExcel } = require("../utils/excel.util");
 
-async function runTotalWine(categoryUrl, maxPages, fileName) {
-  // CONNECT TO REAL CHROME
-  const browser = await puppeteer.connect({
-    browserURL: 'http://127.0.0.1:9222',
-    defaultViewport: null
-  });
-
-  console.log('✅ Connected to real Chrome');
-
-  const page = await browser.newPage();
-
-  await page.setUserAgent(
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-  );
-
-  const allData = [];
-
-  for (let i = 1; i <= maxPages; i++) {
-    const url = i === 1 ? categoryUrl : `${categoryUrl}?page=${i}`;
-    console.log(`\n🌐 Opening Page ${i}: ${url}`);
-
-    await page.goto(url, {
-      waitUntil: 'domcontentloaded',
-      timeout: 0
-    });
-
-    console.log(`
-================================================
-🛑 MANUAL STEP REQUIRED
-1️⃣ Solve CAPTCHA if shown
-2️⃣ Ensure product list is visible
-3️⃣ DO NOT change page number
-================================================
-Waiting...
-`);
-
-    // 🔑 WAIT UNTIL PRODUCTS APPEAR (NO TIMEOUT)
-    await page.waitForFunction(
-      () =>
-        document.querySelectorAll(
-          'article[data-testid="product-tile"]'
-        ).length > 0,
-      { timeout: 0 }
-    );
-
-    console.log('✅ Products detected, scraping...');
-
-    // HUMAN-LIKE SCROLL
-    await page.evaluate(async () => {
-      for (let i = 0; i < 5; i++) {
-        window.scrollBy(0, 500);
-        await new Promise(r => setTimeout(r, 500));
-      }
-    });
-
-    const items = await page.evaluate(() => {
-      const data = [];
-      const tiles = document.querySelectorAll(
-        'article[data-testid="product-tile"]'
-      );
-
-      tiles.forEach(tile => {
-        const name = tile.querySelector('h2')?.innerText.trim();
-        const id = tile.getAttribute('data-productid') || 'N/A';
-
-        const priceMatch = tile.innerText.match(/\$\d+(\.\d+)?/);
-        const sizeEl =
-          tile.querySelector('[class*="size"]') ||
-          tile.querySelector('[data-testid="product-size"]');
-
-        if (name) {
-          data.push({
-            id,
-            name,
-            size: sizeEl ? sizeEl.innerText.trim() : 'N/A',
-            price: priceMatch ? priceMatch[0].replace('$', '') : 'N/A'
-          });
-        }
-      });
-
-      return data;
-    });
-
-    console.log(`📦 Page ${i}: ${items.length} items scraped`);
-    allData.push(...items);
-
-    // SAVE TO EXCEL (REAL-TIME)
-    const workbook = new ExcelJS.Workbook();
-    const sheet = workbook.addWorksheet('TotalWine');
-
-    sheet.columns = [
-      { header: 'ID', key: 'id', width: 15 },
-      { header: 'Name', key: 'name', width: 45 },
-      { header: 'Size', key: 'size', width: 15 },
-      { header: 'Price', key: 'price', width: 15 }
-    ];
-
-    sheet.addRows(allData);
-    await workbook.xlsx.writeFile(fileName);
-
-    console.log(`💾 Excel updated (${allData.length} total items)`);
-  }
-
-  console.log('🏁 Scraping complete. Chrome left open.');
+// Helper: save JSON + Excel
+function saveData(data, jsonFile, excelFile, sheetName) {
+  fs.writeFileSync(jsonFile, JSON.stringify(data, null, 2), "utf-8");
+  return saveExcel(data, excelFile, sheetName);
 }
 
-module.exports = { runTotalWine };
+// -------------------------
+// TotalWine Wine Scraper
+// -------------------------
+async function runTotalWine(baseURL, type = "wine", excelFile = "TW_Wine.xlsx") {
+  const browser = await puppeteer.launch({
+    headless: false,
+    slowMo: 50,
+    defaultViewport: null,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-blink-features=AutomationControlled",
+    ],
+  });
+
+  const page = await browser.newPage();
+  let products = [];
+  let pageNum = 1;
+
+  while (true) {
+    const url =
+      pageNum === 1
+        ? baseURL
+        : `${baseURL}?page=${pageNum}&pageSize=24`;
+
+    console.log(`[TotalWine-${type}] Scraping page ${pageNum}...`);
+    await page.goto(url, { waitUntil: "networkidle2", timeout: 0 });
+
+    // Scroll to bottom for lazy-loaded products
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+
+    try {
+      await page.waitForSelector(".productCard__bcfe4485", { timeout: 60000 });
+    } catch {
+      console.log("No products found on this page. Stopping...");
+      break;
+    }
+
+    // Scrape product info
+    const pageProducts = await page.evaluate(() =>
+      Array.from(document.querySelectorAll(".productCard__bcfe4485")).map((p) => ({
+        name: p.querySelector("h2 a")?.innerText.trim() || null,
+        size: p.querySelector("h2 span")?.innerText.trim() || null,
+        price: p.querySelector(".price__ff218822")?.innerText.trim() || null,
+        sku: p.querySelector("button[data-sku]")?.getAttribute("data-sku") || null,
+        link: p.querySelector("h2 a")?.href || null,
+      }))
+    );
+
+    if (pageProducts.length === 0) break;
+    products.push(...pageProducts);
+
+    // Check if next page exists
+    const hasNext = await page.evaluate(() => {
+      const nextBtn = document.querySelector(
+        '[data-at="product-search-pagination-nextlink"]'
+      );
+      return nextBtn && nextBtn.hasAttribute("href");
+    });
+
+    if (!hasNext) break;
+
+    pageNum++;
+  }
+
+  console.log(`📦 TOTAL PRODUCTS: ${products.length}`);
+
+  if (products.length > 0) {
+    saveData(products, `totalwine_${type}.json`, excelFile, `${type} Products`);
+    console.log(`✅ Data saved: totalwine_${type}.json & ${excelFile}`);
+  } else {
+    console.log("🚨 Nothing scraped. No files saved.");
+  }
+
+  await browser.close();
+  return products;
+}
+
+// -------------------------
+// TotalWine Spirits Scraper
+// -------------------------
+async function runTotalSpirits(baseURL, type = "spirits", excelFile = "TW_Spirits.xlsx") {
+  return runTotalWine(baseURL, type, excelFile); // same logic as Wine
+}
+
+// Export functions for routes
+module.exports = { runTotalWine, runTotalSpirits };
