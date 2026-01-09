@@ -7,3 +7,5 @@ node_modules/
 
 # Env files
 .env
+# Puppeteer Chrome profile
+src/scrapers/puppeteer_data/
