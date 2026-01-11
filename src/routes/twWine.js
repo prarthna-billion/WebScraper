@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
+const { scrapeTotalWine } = require("../scrapers/totalwine.scraper");
 const router = express.Router();
-const { runTotalWine } = require('../scrapers/totalwine.scraper');
 
-router.get('/', async (req, res) => {
-    res.send("Starting Total Wine WINE...");
-    await runTotalWine("https://www.totalwine.com/wine/c/c0020", 225, "TW_Wine.xlsx");
+router.get("/", async (req, res) => {
+    await scrapeTotalWine("https://www.totalwine.com/spirits/c/c0030", "spirits");
+    res.json({ success: true, message: "Spirits scraping completed!" });
 });
 
 module.exports = router;

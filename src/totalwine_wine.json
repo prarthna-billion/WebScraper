@@ -1,0 +1,530 @@
+[
+  {
+    "name": "La Vostra Prosecco",
+    "size": "750ml",
+    "price": "$11.99",
+    "sku": "172976750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/prosecco/brut/la-vostra-prosecco/p/172976750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Tesoro della Regina Pinot Grigio",
+    "size": "750ml",
+    "price": "$16.99",
+    "sku": "110475750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/pinot-grigio-pinot-gris/tesoro-della-regina-pinot-grigio/p/110475750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "1858 by Caymus Vineyards Cabernet Sauvignon Paso Robles, 2023",
+    "size": "750ml",
+    "price": "$39.99",
+    "sku": "214578750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/1858-by-caymus-vineyards-cabernet-sauvignon-paso-robles/p/214578750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "1858 by Caymus Vineyards Red Blend",
+    "size": "750ml",
+    "price": "$24.99",
+    "sku": "232279750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/red-blend/1858-by-caymus-vineyards-red-blend/p/232279750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Samuel Robert Vineyard Reserve Willamette Valley Pinot Noir",
+    "size": "750ml",
+    "price": "$18.99",
+    "sku": "181110750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/pinot-noir/samuel-robert-vineyard-reserve-willamette-valley-pinot-noir/p/181110750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Borrasca Brut Cava",
+    "size": "750ml",
+    "price": "$11.99",
+    "sku": "178706750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/cava/brut/borrasca-brut-cava/p/178706750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Ed Edmundo Cabernet Sauvignon, 2024",
+    "size": "750ml",
+    "price": "$11.99",
+    "sku": "213639750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/ed-edmundo-cabernet-sauvignon/p/213639750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Le Pre Vaujour Sancerre Sauvignon Blanc",
+    "size": "750ml",
+    "price": "$36.99",
+    "sku": "172964750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/le-pre-vaujour-sancerre-sauvignon-blanc/p/172964750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Amici Cabernet Sauvignon Napa, 2023",
+    "size": "750ml",
+    "price": "$54.99",
+    "sku": "20095750-1",
+    "link": "https://www.totalwine.com/wine/gift-center/deals/red-wine/cabernet-sauvignon/amici-cabernet-sauvignon-napa/p/20095750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "King Maui Marlborough Sauvignon Blanc, 2024",
+    "size": "750ml",
+    "price": "$10.99",
+    "sku": "237134750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/king-maui-marlborough-sauvignon-blanc/p/237134750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Ed Edmundo Superior Cabernet, 2024",
+    "size": "750ml",
+    "price": "$14.99",
+    "sku": "2126240236-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/ed-edmundo-superior-cabernet/p/2126240236?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "L'Etincelle Sancerre",
+    "size": "750ml",
+    "price": "$31.99",
+    "sku": "245484750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/letincelle-sancerre/p/245484750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "1858 by Caymus Vineyards Cabernet Sauvignon California",
+    "size": "750ml",
+    "price": "$24.99",
+    "sku": "2126263549-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/1858-by-caymus-vineyards-cabernet-sauvignon-california/p/2126263549?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Mascota Vineyards Unanime Cabernet, 2021",
+    "size": "750ml",
+    "price": "$21.99",
+    "sku": "130007750-1",
+    "link": "https://www.totalwine.com/wine/gift-center/deals/red-wine/cabernet-sauvignon/mascota-vineyards-unanime-cabernet/p/130007750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Caliveda Pinot Noir",
+    "size": "750ml",
+    "price": "$13.99",
+    "sku": "347421750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/pinot-noir/caliveda-pinot-noir/p/347421750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Maria's Legacy Cabernet Sauvignon, 2022",
+    "size": "750ml",
+    "price": "$24.99",
+    "sku": "2126258861-1",
+    "link": "https://www.totalwine.com/wine/red-wine/cabernet-sauvignon/marias-legacy-cabernet-sauvignon/p/2126258861?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Borrasca Prosecco DOCG",
+    "size": "750ml",
+    "price": "$16.99",
+    "sku": "219505750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/prosecco/brut/borrasca-prosecco-docg/p/219505750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Mailly Brut Reserve Grand Cru Champagne",
+    "size": "750ml",
+    "price": "$51.99",
+    "sku": "108998750-1",
+    "link": "https://www.totalwine.com/wine/gift-center/deals/champagne-sparkling-wine/champagne/brut/mailly-brut-reserve-grand-cru-champagne/p/108998750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Lloyd Chardonnay Carneros, 2023",
+    "size": "750ml",
+    "price": "$39.99",
+    "sku": "109285750-1",
+    "link": "https://www.totalwine.com/wine/gift-center/deals/white-wine/chardonnay/lloyd-chardonnay-carneros/p/109285750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Old Winery Road Cabernet Sauvignon Napa Sonoma, 2022",
+    "size": "750ml",
+    "price": "$34.99",
+    "sku": "235847750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/old-winery-road-cabernet-sauvignon-napa-sonoma/p/235847750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Carmen Gran Reserva Cabernet Sauvignon, 2022",
+    "size": "750ml",
+    "price": "$17.99",
+    "sku": "213696750-1",
+    "link": "https://www.totalwine.com/wine/new-arrivals/deals/red-wine/cabernet-sauvignon/carmen-gran-reserva-cabernet-sauvignon/p/213696750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Governors Bay Sauvignon Blanc",
+    "size": "750ml",
+    "price": "$14.99",
+    "sku": "139834750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/governors-bay-sauvignon-blanc/p/139834750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "1858 by Caymus Vineyards Cabernet Sauvignon Napa Valley Reserve",
+    "size": "750ml",
+    "price": "$99.99",
+    "sku": "236696750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/1858-by-caymus-vineyards-cabernet-sauvignon-napa-valley-reserve/p/236696750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "River Road Chardonnay Unoaked, 2024",
+    "size": "750ml",
+    "price": "$14.99",
+    "sku": "116827750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/chardonnay/river-road-chardonnay-unoaked/p/116827750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Harvester Cabernet Sauvignon Paso Robles by Hope Family Wines",
+    "size": "750ml",
+    "price": "$19.99",
+    "sku": "134058750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/harvester-cabernet-sauvignon-paso-robles-by-hope-family-wines/p/134058750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "De Margerie Grand Cru Brut Champagne",
+    "size": "750ml",
+    "price": "$49.99",
+    "sku": "4032750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/champagne/brut/de-margerie-grand-cru-brut-champagne/p/4032750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "King Maui Cellar Reserve Marlborough Sauvignon Blanc",
+    "size": "750ml",
+    "price": "$16.99",
+    "sku": "237135750-1",
+    "link": "https://www.totalwine.com/wine/white-wine/sauvignon-blanc/king-maui-cellar-reserve-marlborough-sauvignon-blanc/p/237135750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Tenuta di Renieri Chianti Classico Riserva, 2021",
+    "size": "750ml",
+    "price": "$27.99",
+    "sku": "113708750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/sangiovese/tenuta-di-renieri-chianti-classico-riserva/p/113708750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Louis Bouillot Perle de Vigne Cremant de Bourgogne Brut Sparkling Wine",
+    "size": "750ml",
+    "price": "$23.99",
+    "sku": "93457750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/sparkling-wine/brut/louis-bouillot-perle-de-vigne-cremant-de-bourgogne-brut-sparkling-wine/p/93457750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "River Road Chardonnay Russian River Valley Reserve, 2023",
+    "size": "750ml",
+    "price": "$19.99",
+    "sku": "93152750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/chardonnay/river-road-chardonnay-russian-river-valley-reserve/p/93152750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Eccentric Cabernet Sauvignon, 2023",
+    "size": "750ml",
+    "price": "$9.99",
+    "sku": "213641750-1",
+    "link": "https://www.totalwine.com/wine/new-arrivals/deals/red-wine/cabernet-sauvignon/eccentric-cabernet-sauvignon/p/213641750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Amici Cabernet Sauvignon Napa Reserve, 2023",
+    "size": "750ml",
+    "price": "$99.99",
+    "sku": "134054750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/amici-cabernet-sauvignon-napa-reserve/p/134054750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Buttercream Chardonnay",
+    "size": "750ml",
+    "price": "$11.99",
+    "sku": "171353750-1",
+    "link": "https://www.totalwine.com/wine/new-arrivals/deals/white-wine/chardonnay/buttercream-chardonnay/p/171353750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Angelica Zapata Birth of Cabernet by Catena Family Wines, 2021",
+    "size": "750ml",
+    "price": "$79.99",
+    "sku": "2126247606-1",
+    "link": "https://www.totalwine.com/wine/red-wine/cabernet-sauvignon/angelica-zapata-birth-of-cabernet-by-catena-family-wines/p/2126247606?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Chateau Leoville Poyferre St Julien, 2018",
+    "size": "750ml",
+    "price": "$164.99",
+    "sku": "59318750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/bordeaux-blend/chateau-leoville-poyferre-st-julien/p/59318750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Mina Mesa Cabernet Paso Robles",
+    "size": "750ml",
+    "price": "$10.99",
+    "sku": "194460750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/cabernet-sauvignon/mina-mesa-cabernet-paso-robles/p/194460750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Blankiet Prince of Hearts Red Napa, 2018",
+    "size": "750ml",
+    "price": "$149.99",
+    "sku": "2126233973-1",
+    "link": "https://www.totalwine.com/wine/red-wine/cabernet-sauvignon/blankiet-prince-of-hearts-red-napa/p/2126233973?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Jules Braissol Sancerre",
+    "size": "750ml",
+    "price": "$29.99",
+    "sku": "2126266989-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/jules-braissol-sancerre/p/2126266989?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Armani Pinot Grigio Venezie",
+    "size": "750ml",
+    "price": "$12.99",
+    "sku": "14445750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/pinot-grigio-pinot-gris/armani-pinot-grigio-venezie/p/14445750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Barrel & Bell Buttery Chardonnay, 2023",
+    "size": "750ml",
+    "price": "$15.99",
+    "sku": "2126259628-1",
+    "link": "https://www.totalwine.com/wine/white-wine/chardonnay/barrel-bell-buttery-chardonnay/p/2126259628?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Mascota Vineyards Unanime Malbec, 2022",
+    "size": "750ml",
+    "price": "$21.99",
+    "sku": "213660750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/malbec/mascota-vineyards-unanime-malbec/p/213660750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "St. Giorgio Toscana IGT Super Tuscan, 2019",
+    "size": "750ml",
+    "price": "$14.99",
+    "sku": "349664750-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/red-blend/st-giorgio-toscana-igt-super-tuscan/p/349664750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Chateau Lamothe Vincent Reserve Bordeaux, 2023",
+    "size": "750ml",
+    "price": "$13.99",
+    "sku": "2126222101-1",
+    "link": "https://www.totalwine.com/wine/deals/red-wine/bordeaux-blend/chateau-lamothe-vincent-reserve-bordeaux/p/2126222101?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Champagne Marie de Moy Grand Cru",
+    "size": "750ml",
+    "price": "$47.99",
+    "sku": "238539750-1",
+    "link": "https://www.totalwine.com/wine/deals/champagne-sparkling-wine/champagne/brut/champagne-marie-de-moy-grand-cru/p/238539750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Olema Sauvignon Blanc Loire, 2024",
+    "size": "750ml",
+    "price": "$15.99",
+    "sku": "231443750-1",
+    "link": "https://www.totalwine.com/wine/deals/white-wine/sauvignon-blanc/olema-sauvignon-blanc-loire/p/231443750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Moone Tsai Hillside Red Howell Mountain, 2018",
+    "size": "750ml",
+    "price": "$169.99",
+    "sku": "117945750-1",
+    "link": "https://www.totalwine.com/wine/red-wine/cabernet-sauvignon/moone-tsai-hillside-red-howell-mountain/p/117945750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Roy Estate Cabernet Sauvignon Napa, 2016",
+    "size": "750ml",
+    "price": "$309.99",
+    "sku": "241417750-1",
+    "link": "https://www.totalwine.com/wine/red-wine/cabernet-sauvignon/roy-estate-cabernet-sauvignon-napa/p/241417750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  },
+  {
+    "name": "Olema Cotes De Provence Rose, 2024",
+    "size": "750ml",
+    "price": "$17.99",
+    "sku": "176621750-1",
+    "link": "https://www.totalwine.com/wine/deals/rose-blush-wine/rose-blend/olema-cotes-de-provence-rose/p/176621750?s=1108&igrules=true",
+    "details": {
+      "description": null,
+      "location": null
+    }
+  }
+]

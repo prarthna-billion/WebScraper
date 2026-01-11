@@ -1,15 +1,38 @@
-// src/utils/excel.util.js
-import ExcelJS from "exceljs";
+const XLSX = require("xlsx");
+const fs = require("fs");
+const path = require("path");
 
-// Named export
-export function saveExcel(data, fileName, sheetName) {
-  const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet(sheetName);
+/**
+ * Initialize Excel workbook and worksheet
+ */
+function createExcel(filePath) {
+  const workbook = XLSX.utils.book_new();
 
-  if (data.length > 0) {
-    sheet.columns = Object.keys(data[0]).map((key) => ({ header: key, key }));
-    sheet.addRows(data);
-  }
+  const worksheet = XLSX.utils.json_to_sheet([], {
+    header: ["ProductID", "Name", "Price", "Size"]
+  });
 
-  return workbook.xlsx.writeFile(fileName);
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Products");
+
+  // Save empty file initially
+  XLSX.writeFile(workbook, filePath);
+
+  return { workbook, worksheet };
 }
+
+/**
+ * Add a row to worksheet and write to file
+ */
+function addRow(workbook, worksheet, filePath, rowData, rowIndex) {
+  XLSX.utils.sheet_add_json(
+    worksheet,
+    [rowData],
+    { skipHeader: true, origin: rowIndex }
+  );
+
+  XLSX.writeFile(workbook, filePath);
+
+  return rowIndex + 1;
+}
+
+module.exports = { createExcel, addRow };

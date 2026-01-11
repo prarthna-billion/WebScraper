@@ -1,18 +1,36 @@
-// src/scrapers/totalwine.scraper.js
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const { saveExcel } = require("../utils/excel.util");
+const XLSX = require("xlsx");
 
-// Helper: save JSON + Excel
-function saveData(data, jsonFile, excelFile, sheetName) {
+// Save Excel dynamically
+function saveExcel(data, excelFile, sheetName) {
+  let workbook;
+  if (fs.existsSync(excelFile)) {
+    workbook = XLSX.readFile(excelFile);
+  } else {
+    workbook = XLSX.utils.book_new();
+  }
+
+  let worksheet = workbook.Sheets[sheetName];
+  if (!worksheet) {
+    worksheet = XLSX.utils.json_to_sheet([], {
+      header: Object.keys(data[0] || {}),
+    });
+    XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+  }
+
+  XLSX.utils.sheet_add_json(worksheet, data, { skipHeader: true, origin: -1 });
+  XLSX.writeFile(workbook, excelFile);
+}
+
+// Save JSON fully at the end
+function saveJSON(data, jsonFile) {
   fs.writeFileSync(jsonFile, JSON.stringify(data, null, 2), "utf-8");
-  return saveExcel(data, excelFile, sheetName);
 }
 
 // -------------------------
-// TotalWine Wine Scraper
-// -------------------------
-async function runTotalWine(baseURL, type = "wine", excelFile = "TW_Wine.xlsx") {
+// TotalWine Scraper (Tile-wise)
+async function scrapeTotalWine(baseURL, type = "wine", excelFile = `TW_${type}.xlsx`) {
   const browser = await puppeteer.launch({
     headless: false,
     slowMo: 50,
@@ -25,30 +43,27 @@ async function runTotalWine(baseURL, type = "wine", excelFile = "TW_Wine.xlsx") 
   });
 
   const page = await browser.newPage();
-  let products = [];
+  let allProducts = [];
   let pageNum = 1;
 
   while (true) {
-    const url =
-      pageNum === 1
-        ? baseURL
-        : `${baseURL}?page=${pageNum}&pageSize=24`;
+    const url = pageNum === 1 ? baseURL : `${baseURL}?page=${pageNum}&pageSize=24`;
+    console.log(`[TotalWine-${type}] Page ${pageNum}: ${url}`);
 
-    console.log(`[TotalWine-${type}] Scraping page ${pageNum}...`);
     await page.goto(url, { waitUntil: "networkidle2", timeout: 0 });
 
-    // Scroll to bottom for lazy-loaded products
+    // Scroll for lazy-loading tiles
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    await new Promise((r) => setTimeout(r, 4000));
 
     try {
       await page.waitForSelector(".productCard__bcfe4485", { timeout: 60000 });
     } catch {
-      console.log("No products found on this page. Stopping...");
+      console.log("No products found. Ending scraper.");
       break;
     }
 
-    // Scrape product info
+    // Tile-wise scraping only
     const pageProducts = await page.evaluate(() =>
       Array.from(document.querySelectorAll(".productCard__bcfe4485")).map((p) => ({
         name: p.querySelector("h2 a")?.innerText.trim() || null,
@@ -60,40 +75,29 @@ async function runTotalWine(baseURL, type = "wine", excelFile = "TW_Wine.xlsx") 
     );
 
     if (pageProducts.length === 0) break;
-    products.push(...pageProducts);
 
-    // Check if next page exists
+    allProducts.push(...pageProducts);
+
+    // Save dynamically after each page
+    saveExcel(pageProducts, excelFile, `${type} Products`);
+    console.log(`✅ Page ${pageNum} scraped. Total so far: ${allProducts.length}`);
+
+    // Pagination check
     const hasNext = await page.evaluate(() => {
-      const nextBtn = document.querySelector(
-        '[data-at="product-search-pagination-nextlink"]'
-      );
-      return nextBtn && nextBtn.hasAttribute("href");
+      const btn = document.querySelector('[data-at="product-search-pagination-nextlink"]');
+      return btn && !btn.hasAttribute("disabled");
     });
 
     if (!hasNext) break;
-
     pageNum++;
   }
 
-  console.log(`📦 TOTAL PRODUCTS: ${products.length}`);
-
-  if (products.length > 0) {
-    saveData(products, `totalwine_${type}.json`, excelFile, `${type} Products`);
-    console.log(`✅ Data saved: totalwine_${type}.json & ${excelFile}`);
-  } else {
-    console.log("🚨 Nothing scraped. No files saved.");
-  }
+  saveJSON(allProducts, `totalwine_${type}.json`);
+  console.log(`🎉 Scraping done. Total products: ${allProducts.length}`);
 
   await browser.close();
-  return products;
+  return allProducts;
 }
 
-// -------------------------
-// TotalWine Spirits Scraper
-// -------------------------
-async function runTotalSpirits(baseURL, type = "spirits", excelFile = "TW_Spirits.xlsx") {
-  return runTotalWine(baseURL, type, excelFile); // same logic as Wine
-}
-
-// Export functions for routes
-module.exports = { runTotalWine, runTotalSpirits };
+// Export for routes
+module.exports = { scrapeTotalWine };
