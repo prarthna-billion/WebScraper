@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 
-// 1. IMPORT THE 4 SEPARATE ROUTE FILES
-// Ensure these filenames match exactly what is in your src/routes folder
 const twWineRoute = require('./routes/twWine');
 const twSpiritsRoute = require('./routes/twSpirits');
 const specsWineRoute = require('./routes/specsWine');
@@ -44,3 +42,5 @@ app.listen(PORT, () => {
     console.log(`🍸 SPECS SPIRITS:      http://localhost:${PORT}/scrape/specs-spirits`);
     console.log(`================================================\n`);
 });
+const errorHandler = require('./utils/errorHandler');
+app.use(errorHandler);

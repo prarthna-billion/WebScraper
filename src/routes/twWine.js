@@ -1,8 +1,8 @@
-const express = require("express");
-const { scrapeWine } = require("../controllers/twWcont");
-
+const express = require('express');
 const router = express.Router();
+const asyncHandler = require('../utils/asyncHandler');
+const twWineController = require('../controllers/twWcont');
 
-router.get("/", scrapeWine);
+router.get('/', asyncHandler(twWineController));
 
 module.exports = router;

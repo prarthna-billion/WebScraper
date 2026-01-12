@@ -1,8 +1,8 @@
 const express = require('express');
-const { scrapeSpecsSpirits } = require('../controllers/specsScont');
-
 const router = express.Router();
+const asyncHandler = require('../utils/asyncHandler');
+const { specsSpiritsController } = require('../controllers/specsScont');
 
-router.get('/', scrapeSpecsSpirits);
+router.get('/', asyncHandler(specsSpiritsController));
 
 module.exports = router;
