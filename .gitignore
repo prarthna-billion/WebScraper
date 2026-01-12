@@ -1,9 +1,26 @@
 
-# Excel output files
-*.xlsx
-
-# Node dependencies
+# Node
 node_modules/
+
+# OS
+.DS_Store
+
+# Scraper output
+output/
+user_data/
+
+# Excel files
+*.xlsx
+*.xls
+~$*.xlsx
+
+# JSON output files (scraped data)
+totalwine_*.json
+specs_*.json
+*.json
+
+# Logs
+npm-debug.log*
 
 # Env files
 .env
