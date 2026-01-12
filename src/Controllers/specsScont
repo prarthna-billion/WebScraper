@@ -1,0 +1,18 @@
+const { runSpecs } = require('../services/specsonline.scraper');
+
+const scrapeSpecsSpirits = async (req, res) => {
+    try {
+        res.send("<h1>Specs Online SPIRITS Started! Check Terminal.</h1>");
+
+        await runSpecs(
+            "https://specsonline.com/product-category/spirits/",
+            225,
+            "Specs_Spirits.xlsx"
+        );
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Specs Spirits scraping failed");
+    }
+};
+
+module.exports = { scrapeSpecsSpirits };

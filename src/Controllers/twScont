@@ -1,0 +1,24 @@
+const { scrapeTotalWine } = require("../services/totalwine.scraper");
+
+const scrapeSpirits = async (req, res) => {
+  try {
+    await scrapeTotalWine(
+      "https://www.totalwine.com/spirits/c/c0030",
+      "spirits"
+    );
+
+    res.json({
+      success: true,
+      message: "Spirits scraping completed!",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Spirits scraping failed",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { scrapeSpirits };
